@@ -11,12 +11,12 @@ class ColumnHolder:
     def add(self, column):
         self.column_list.append(column)
 
-    def update(self, win, index, column):
+    def update(self, win, index, new_column):
         col_width = SCREEN_WIDTH / len(self.column_list)
         
         self.column_list[index].draw(win, col_width, index, BLACK)  # clear old
 
-        self.column_list[index] = column
+        self.column_list[index] = new_column
         
         self.column_list[index].draw(win, col_width, index, WHITE)  # draw new
 
