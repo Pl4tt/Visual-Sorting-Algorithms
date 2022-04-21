@@ -12,6 +12,9 @@ class ColumnHolder:
         self.column_list.append(column)
 
     def update(self, win, index, new_column):
+        if self.column_list[index].height == new_column.height:
+            return
+
         col_width = SCREEN_WIDTH / len(self.column_list)
         
         self.column_list[index].draw(win, col_width, index, BLACK)  # clear old
@@ -24,6 +27,9 @@ class ColumnHolder:
         pygame.time.wait(1000)
 
     def swap(self, win, low, high):
+        if self.column_list[low].height == self.column_list[high].height:
+            return
+
         col_width = SCREEN_WIDTH / len(self.column_list)
 
         # clear old
